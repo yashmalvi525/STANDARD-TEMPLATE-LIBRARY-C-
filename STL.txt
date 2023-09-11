@@ -1,0 +1,328 @@
+
+#include <iostream>
+#include<array>
+#include<vector>
+#include<deque>
+#include<list>
+#include<stack>
+#include<queue>
+#include<set>
+#include<map>
+#include<algorithm>
+
+using namespace std;
+
+int main()
+{    //STL FOR ARRAY
+    array<int,4>a={1,2,3,4};
+    cout<<endl;
+    cout<<"caoacity is "<<a.size()<<endl;  //size
+    
+    for(int i:a){
+        cout<<i<<" ";
+    }
+    cout<<endl;
+     cout<<"array is empty or not "<<a.empty()<<endl; //emptyb or not
+     cout<<"first element is "<<a.front()<<endl;   //front element of array
+    cout<<"last element is "<<a.back()<<endl;     //last element of array
+    cout<<" element  an 1st index is "<<a.at(1)<<endl;  //at
+        
+        //STL FOR vector
+        cout<<"----------------------------------------------------------------------------------------------------"<<endl;
+        cout<<"STL FOR VECTOR"<<endl;
+        vector<int>v;
+        cout<<"capacity is "<<v.capacity()<<endl;
+        v.push_back(1); //insert data
+        v.push_back(2);
+        v.push_back(3);
+    cout<<"capacity is "<<v.capacity()<<endl;  //what is the capacity of vector
+    cout<<"size is "<<v.size()<<endl;  //how many element is present
+        v.pop_back();
+    cout<<"capacity is "<<v.capacity()<<endl; 
+    cout<<"size is "<<v.size()<<endl;  
+    for(int i:v){
+        cout<<i<<" ";
+    }
+    cout<<endl;
+    cout<<"new vector v1 is"<<endl;
+    vector<int>v1(v);//copy previous vector in new vector;
+    for(int i:v1){
+        cout<<i<<" ";
+    }
+       v1.push_back(6);
+       v1.push_back(7);
+       v1.push_back(8);
+     cout<<endl;
+     for(int i:v1){
+        cout<<i<<" ";
+    }  cout<<endl;
+    
+    cout<<"capacity is "<<v1.capacity()<<endl; 
+    cout<<"size is "<<v1.size()<<endl;  
+    
+     cout<<"vector is empty or not "<<v1.empty()<<endl; //emptyb or not
+     cout<<"first element is "<<v1.front()<<endl;   //front element of array
+    cout<<"last elemen  t is "<<v1.back()<<endl;     //last element of array
+    cout<<" element  an 2nd index is "<<v1.at(3)<<endl;  //at
+        
+        //STL FOR DEQUE
+        cout<<"----------------------------------------------------------------------------------------------------"<<endl;
+        cout<<"STL FOR DEQUE"<<endl;
+    //we can do insertion and deletion  of both end 
+    deque<int>d;//creation of deque;
+    
+    d.push_back(1); //initialization
+    d.push_front(2);
+    d.push_front(3);
+    cout<<"printing of deque before deletion"<<endl;
+    for(int i:d){
+        cout<<i<<" ";
+    }cout<<endl;
+    d.pop_back(); //deletion
+
+    cout<<"printing of deque after deletion"<<endl;
+    for(int i:d){
+        cout<<i<<" ";
+    }
+    
+    cout<<"element at index 0 is :"<<d.at(0)<<endl; //element at given index
+    
+      cout<<"deque is empty or not : "<<d.empty()<<endl; //emptyb or not
+     cout<<"first element is :"<<d.front()<<endl;   //front element of array
+    cout<<"last element is : "<<d.back()<<endl;     //last element of array
+    cout<<"size of deque is : "<<d.size()<<endl;   //size of deque
+  //  cout<<"capacity of deque"<<d.capacity()<<endl;  //capacity of deque
+  
+  //erase/delete the element
+ /* d.erase(d.begin,d.begin()+1);
+  for(int i:d){
+      cout<<i<<" ";
+  }*/
+   
+    //STL FOR list
+        cout<<"----------------------------------------------------------------------------------------------------"<<endl;
+        cout<<"STL FOR list"<<endl;
+        cout<<"contain two pointer front & back and no direct accesss possible"<<endl;
+ list<int>l;  //creation
+ l.push_back(3); //INSERTION
+ l.push_front(4);
+ l.push_front(5);
+ cout<<"last elemet is : "<<l.back()<<endl; //LAST ELEMENT
+ cout<<"last elemet is : "<<l.front()<<endl; //FIRST ELEMENT
+ cout<<"size of list is : "<<l.size()<<endl;   //size of deque
+// cout<<"capacity is "<<l.capacity()<<endl;
+ l.erase(l.begin());
+ cout<<"size of list is : "<<l.size()<<endl;
+ cout<<"after deletion the element is"<<endl;
+ for(int i:l){
+     cout<<i<<" ";
+ }cout<<endl;
+ 
+ list<int>l1(l);//copy previous list
+ l.push_front(8);
+ for(int i:l){
+     cout<<i<<" ";
+ }cout<<endl;
+ list<int>l2(5,100);
+ for(int i:l2){
+     cout<<i<<" ";
+ }
+ 
+  //STL FOR STACK
+        cout<<"----------------------------------------------------------------------------------------------------"<<endl;
+        cout<<"STL FOR STACK"<<endl;
+        cout<<"CONTAIN ONE POINTER TOP,WORK ON LIFO MANNER "<<endl;
+ stack<string>s;  //creation
+ s.push("yash");  //insertion
+ s.push("kumar");
+ s.push("malvi");
+cout<<"top element is :"<<s.top()<<endl; //PROOF FOR LIFO MANNER
+s.pop();   //REMOVE THE TOP MOST ELEMENT
+cout<<" after deletion top element is :"<<s.top()<<endl;
+cout<<"size of stack is :"<<s.size()<<endl;
+cout<<"stack is empty or not ? :"<<s.empty()<<endl;
+
+
+//STL FOR QUEUE
+        cout<<"----------------------------------------------------------------------------------------------------"<<endl;
+        cout<<"STL FOR QUEUE"<<endl;
+        cout<<"WORK ON FIFO MANNER "<<endl;
+        
+         queue<string>q;  //creation
+ q.push("yash");  //insertion
+ q.push("kumar");
+ q.push("malvi");
+//cout<<"top element is :"<<q.top()<<endl; //PROOF FOR FIFO MANNER
+q.pop();   //REMOVE THE LAST MOST ELEMENT
+//cout<<" after deletion top element is :"<<q.top()<<endl;
+cout<<"size of stack is :"<<q.size()<<endl;
+cout<<"stack is empty or not ? :"<<q.empty()<<endl;
+
+//STL FOR  PRIORITY QUEUE
+        cout<<"----------------------------------------------------------------------------------------------------"<<endl;
+        cout<<"STL FOR  PRIORITYQUEUE"<<endl;
+        cout<<"TOP ELEMENT IS EITHER HIGHEST OR  LOWEST "<<endl;
+        priority_queue<int>maxi;  //deafault MAX HAP QUEUE CREATION
+        maxi.push(1);
+        maxi.push(5);
+        maxi.push(3);
+        maxi.push(4);
+cout<<"before deleton MAX QUEUE"<<endl;
+int n=maxi.size();
+for(int i=0;i<n;i++){
+    cout<<maxi.top()<<" ";
+    maxi.pop();
+    
+}cout<<endl;
+maxi.pop();  //IT WILL DELETE GREATEST ELEMENT
+cout<<"before deletion MAX QUEUE"<<endl;
+for(int i=0;i<n;i++){
+    cout<<maxi.top()<<" ";
+    maxi.pop();
+    
+}cout<<endl;
+
+  priority_queue<int,vector<int>,greater<int>>mini;  //deafault MAX HAP QUEUE CREATION
+        mini.push(1);
+        mini.push(5);
+        mini.push(3);
+        mini.push(4);
+cout<<"before deleton MIN QUEUE"<<endl;
+int m=mini.size();
+for(int i=0;i<m;i++){
+    cout<<mini.top()<<" ";
+    mini.pop();
+    
+}cout<<endl;
+mini.pop();  //IT WILL DELETE GREATEST ELEMENT
+cout<<"before deletion MIN QUEUE"<<endl;
+for(int i=0;i<m;i++){
+    cout<<mini.top()<<" ";
+    mini.pop();
+    
+}cout<<endl;
+
+cout<<"MIN QUEUE IS EMPTY: "<<mini.empty()<<endl;
+cout<<"MAX QUEUE IS EMPTY: "<<maxi.empty()<<endl;
+
+//STL FOR  PRIORITY SET
+        cout<<"----------------------------------------------------------------------------------------------------"<<endl;
+        cout<<"STL FOR  SET"<<endl;
+        cout<<"NOT TAKE DUPLICATE VALUE INSIDE IT ,RETURN OUTPUT IN SORTED MANNER "<<endl;  /*(1)IF I ADD 2 TIME 3 THEN IT WILL TAKE ONLY ONCE 
+        (2) NO MODIFICATION ALLOWED*/
+  set<int>S;
+  S.insert(5);
+  S.insert(5);
+  S.insert(5);
+  S.insert(1);
+  S.insert(6);
+  S.insert(6);
+  S.insert(0);
+  cout<<"THE SET IS :"<<endl;
+  for(int i:S){
+      cout<<i<<" ";
+  }cout<<endl;
+  
+  S.erase(S.begin());
+  for(int i:S){
+      cout<<i<<" ";
+  }cout<<endl;
+  
+  cout<<"ELEMENT IS PRESENT OR NOT :"<<S.count(5)<<endl;
+  
+  
+  //ONE MORE TIME TO ERASE IT
+  set<int>::iterator it=S.begin();
+  it++;//to delete  element after begin
+  it++;
+  S.erase(it);
+   for(int i:S){
+      cout<<i<<" ";
+  }cout<<endl;
+ 
+
+//STL FOR  PRIORITY MAP
+        cout<<"----------------------------------------------------------------------------------------------------"<<endl;
+        cout<<"STL FOR  MAP"<<endl;
+        cout<<"(1)STORE DATA IN KEY VALYE FORM (2)EVERY KEY IS UNIQUE  (3) ONE KEY POINTS TO ONLY  ONE VALUE"<<endl;      
+
+     map<int, string> M; // CREATION
+    M[1] = "YASH";
+    M[2] = "KUMAR"; // initialization
+    M[3] = "MALVIYA";
+    M.insert({5,"GAUTAM"});
+   /* for(int string:M){
+        cout<<M.first<<" ";
+    }*/
+    for (const auto& pair : M) {
+        cout << pair.first << " " << pair.second << " "<<endl; //NOT WORKING thats why another way
+    }cout<<endl;
+    
+    
+    cout<<"3 is available or not :"<<M.count(13)<<endl;
+    M.erase(3);
+    for (const auto& pair : M) {
+        cout << pair.first << " " << pair.second << " "<<endl; //NOT WORKING thats why another way
+    }cout<<endl;
+    
+//FIND THE 
+
+//STL FOR  ALGORITHM
+        cout<<"----------------------------------------------------------------------------------------------------"<<endl;
+        cout<<"STL FOR  ALGORITHM"<<endl;
+
+cout<<"BINARY SEARCH ALGORITHM : binary_search(v.begin(),v.end(),6) where 6 is the search element"<<endl;
+
+vector<int>v2;
+v2.push_back(5);
+v2.push_back(4);
+v2.push_back(1);
+v2.push_back(2);
+cout<<"4 is present or not :"<<binary_search(v2.begin(),v2.end(),4)<<endl;
+
+cout<<"LOWER BOUND ALGORITHM : lower_search(v.begin(),v.end(),6)-v.begin() where 6 is the search element"<<endl;
+
+cout<<"lower bound of 4 :"<<lower_bound(v2.begin(),v2.end(),4)-v2.begin()<<endl;
+
+
+cout<<"UPPER BOUND ALGORITHM : upper_search(v.begin(),v.end(),6)-v.begin() where 6 is the search element"<<endl;
+
+cout<<"upper bound of 4 :"<<upper_bound(v2.begin(),v2.end(),4)-v2.begin()<<endl;
+
+    cout << "SORTING ALGORITHM: sort(v2.begin(), v2.end())" << endl;
+    sort(v2.begin(), v2.end());
+    
+    for (int i : v2) {
+        cout << i << " ";
+    }
+    cout << endl;
+    
+
+cout<<"max finder : max(a,b);"<<endl;
+int c1=3;
+int c2=5;
+cout<<"max element in c1 and c2 is "<<max(c1,c2)<<endl;
+
+cout<<"min finder : min(c1,c2);"<<endl;
+cout<<"min element in c1 and c2 is "<<min(c1,c2)<<endl;
+
+cout<<"swapping ALGORITHM : swap(c1,c2);"<<endl;
+cout<<"before swapping c1 is "<<c1<<" and c2 is "<< c2<<endl;
+swap(c1,c2);
+cout<<"after swapping c1 is "<<c1<<" and c2 is "<< c2<<endl;
+
+string abcd="abcd";
+reverse(abcd.begin(),abcd.end());
+
+cout<<"ROTATION OF VECTOR OR OTHERS : rotate(v.begin(),v.begin()+1,v.end()) where +1 is showing no of rotation"<<endl;
+rotate(v2.begin(),v2.begin()+1,v2.end());
+cout<<"after 1 rotation the vector will be"<<endl;
+ for (int i : v2) {
+        cout << i << " ";
+    }
+    cout << endl;
+   
+
+}
+  
+  
